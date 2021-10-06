@@ -1,62 +1,82 @@
 <!DOCTYPE html>
 <html>
- <title>JavaScript Assignment</title>
+    <head>
+        <title>Webapps Assignment</title>
+
+        </head>
+        <div class="container-fluid">
 <body>
-<h1>Pass phrase by Harshika</h1>
+<h2>Pass phrase by Harshika Pinninti</h2>
+
 <h2>Getting input</h2>
 
 <form>
-    <label for="phrase">Enter the secret phrase</label>
-    <input type ="password" id="phrase" name="password" min=10 max=50 step=2 value="Let me in"> <br>
-     <br>
-     <br>
-    <label for="pwd">Enter a phrase</label>
-    <input type ="text" id="check" name="check" autofocus> <br>
-    <br>
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
-    <p id="result">This text will be replaced </p>
+    <label for="form1_secret">Enter the secret phrase </label>
+    <input type ="password" id="form1_secret" name="form1_secret" class ="form-control" value="Let me in" min=10 max=50 step=2 value=30> <br>
 
+    <label for="form1_guess">Enter a phrase</label>
+    <input type ="text" id="form1_guess"  class ="form-control" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" class="btn btn-primary btn-md" value="Check the phrase">
 </form>
-<script> 
-    let correct=0,wrong=0;
-   function processPhrase(){
-      var secret = document.getElementById("phrase").value
-      var check = document.getElementById("check").value
-      out = document.getElementById("result")
-      if(secret == check)
-      {
-          correct = correct+1;
-          alert("Access allowed")
-          out.innerHTML = "Correct Count : "+correct
-      }
-      else{
-          wrong = wrong+1;
-          alert("Access denied")
-          out.innerHTML = "Wrong Count : "+wrong
-      }
-   
-   
-    }
-    /*
 
-<p id="result">This text will be replaced </p>
 
+<p id="result">results </p>
+<div>
+    <img id = "dog" src="Dog.jpg" onclick="newImage()" alt="dogs" width="200" height="200" ><br>
+</div>
+</div>
 <script> 
 
-function resolveForm (){
+function processGuess (){
+    var correct = 0;
+    var wrong = 0;
+
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    secret = document.getElementById("form1_secret").value
+    guess = document.getElementById("form1_guess").value
     
     out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
+    if(secret == guess){
+        correct = correct + 1;
+        alert("Access allowed")
+        out.innerHTML = "Correct Count" + correct
     } else {
-        out.innerHTML = "Values were not confirmed"
+        wrong += 1;
+        alert("Access denied")
+        out.innerHTML = "Wrong Count" + wrong
     }
-}*/
+}
+
+ 
+var usingimage = 1;
+function newImage(){
+    
+    switch(usingimage){
+        case 1:
+        document.getElementById("dog").src =  "Dog.jpg" 
+        usingimage = 2;
+        break;
+
+        case 2:
+        document.getElementById("dog").src = "Elephant.jpg"
+        usingimage = 3;
+        break;
+
+        case 3:
+        document.getElementById("dog").src = "Panther.jpg"
+        usingimage = 1;
+        break;
+
+        default:
+        document.getElementById("dog").src =  "Dog.jpg" 
+        usingimage = 1;
+        break;
+
+
+    }
+}
 </script>
 
 </body>
-</html> 
+</html>
